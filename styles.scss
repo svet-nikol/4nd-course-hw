@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: StratosSkyeng_n;
+    src: url(fonts/stratosskyengweb-regular.woff2);
+}
+
+.container {
+    font-family: StratosSkyeng_n;
+    background-color: #004980;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.window {
+    background-color:#C2F5FF;
+    width: 480px;
+    height: 459px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    &__message {
+        width: 208px;
+        color: #004980;
+        font-size: 40px;
+        line-height: 48px;
+        text-align: center;
+    }
+    &__choose-difficulty {
+        display: flex;
+        gap: 24px;
+    }
+    &__button {
+        width: 246px;
+        height: 50px;
+        border-radius: 12px;
+        background-color: #7AC100;
+        border: none;
+        color:#FFFFFF;
+        font-family: StratosSkyeng_n;
+        font-size: 24px;
+        line-height: 32px;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+.choose-difficulty__item {
+    list-style-type: none;
+    color: #0080C1;
+    width: 98px;
+    height: 98px;
+    font-size: 64px;
+    line-height: 72px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    border: none;
+    text-align: center;
+    padding-top: 13px;
+    cursor: pointer;
+}
