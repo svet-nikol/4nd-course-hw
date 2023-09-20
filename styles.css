@@ -10,7 +10,7 @@ a {
 
 @font-face {
   font-family: StratosSkyeng_n;
-  src: url(fonts/stratosskyengweb-regular.woff2);
+  src: url(assets/fonts/stratosskyengweb-regular.woff2);
 }
 .container {
   font-family: StratosSkyeng_n;
