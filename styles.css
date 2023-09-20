@@ -21,8 +21,8 @@ a {
   align-items: center;
 }
 
-.window {
-  background-color: #C2F5FF;
+.window-start {
+  background-color: #c2f5ff;
   width: 480px;
   height: 459px;
   border-radius: 12px;
@@ -31,42 +31,71 @@ a {
   justify-content: space-evenly;
   align-items: center;
 }
-.window__message {
+.window-start__message {
   width: 208px;
   color: #004980;
   font-size: 40px;
   line-height: 48px;
   text-align: center;
 }
-.window__choose-difficulty {
-  display: flex;
-  gap: 24px;
-}
-.window__button {
+.window-start__button {
   width: 246px;
   height: 50px;
   border-radius: 12px;
-  background-color: #7AC100;
+  background-color: #7ac100;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: StratosSkyeng_n;
   font-size: 24px;
   line-height: 32px;
   text-align: center;
   cursor: pointer;
 }
+.window-start__button:hover {
+  background-color: #00c2ff;
+  border: 1px solid #00c2ff;
+}
 
-.choose-difficulty__item {
-  list-style-type: none;
-  color: #0080C1;
+.window-start_checkbox strong {
+  color: #0080c1;
+  font-size: 64px;
+  line-height: 72px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.choose-difficulty-toolbar {
+  display: flex;
+  gap: 24px;
+}
+
+.choose-difficulty-toolbar input[type=radio] {
+  display: none;
+}
+
+.choose-difficulty-toolbar label {
+  display: inline-block;
+  color: #0080c1;
   width: 98px;
   height: 98px;
   font-size: 64px;
   line-height: 72px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 12px;
   border: none;
   text-align: center;
   padding-top: 13px;
   cursor: pointer;
+}
+
+.choose-difficulty-toolbar input[type=radio]:checked + label {
+  background-color: #00c2ff;
+  border: 1px solid #00c2ff;
+  color: #fff;
+}
+
+.choose-difficulty-toolbar label:hover {
+  background-color: #7ac100;
+  border: 1px solid #7ac100;
+  color: #fff;
 }/*# sourceMappingURL=styles.css.map */
