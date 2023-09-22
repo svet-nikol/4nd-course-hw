@@ -1,10 +1,8 @@
 let choosedDifficultyLevel = null;
-
 const renderApp = () => {
   const appEl = document.getElementById("app");
   const appHtml = `<div class="window-start">
     <p class="window-start-message">Выбери сложность</p>
-
     <div class="window-start-checkbox">
       <div class="choose-difficulty-toolbar">
         <input
@@ -14,7 +12,6 @@ const renderApp = () => {
           value="1"
         />
         <label for="difficulty-level-1">1</label>
-
         <input
           type="radio"
           id="difficulty-level-2"
@@ -22,7 +19,6 @@ const renderApp = () => {
           value="2"
         />
         <label for="difficulty-level-2">2</label>
-
         <input
           type="radio"
           id="difficulty-level-3"
@@ -32,7 +28,6 @@ const renderApp = () => {
         <label for="difficulty-level-3">3</label>
       </div>
     </div>
-
     <button class="window-start-button">Старт</button>
   </div>`;
   appEl.innerHTML = appHtml;
