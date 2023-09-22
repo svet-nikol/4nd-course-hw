@@ -41,7 +41,7 @@ const renderApp = () => {
 renderApp();
 
 const radioInputs = document.querySelectorAll(
-  'input[type="radio"][name="difficulty-levels"]'
+  'input[type="radio"][name="difficulty-levels"]',
 );
 
 function handleRadioChange(event) {
@@ -57,7 +57,7 @@ radioInputs.forEach((input) => {
 function saveLevelToLocalStorage(choosedDifficultyLevel) {
   window.localStorage.setItem(
     "choosedDifficultyLevel",
-    JSON.stringify(choosedDifficultyLevel)
+    JSON.stringify(choosedDifficultyLevel),
   );
 }
 
@@ -70,16 +70,16 @@ function getUserFromLocalStorage(choosedDifficultyLevel) {
 }
 
 const startButtonEl = document.querySelector(
-  'button[class="window-start-button"]'
+  'button[class="window-start-button"]',
 );
 startButtonEl.addEventListener("click", () => {
   console.log(
     "Теперь из локал сторадж:",
-    getUserFromLocalStorage(choosedDifficultyLevel)
+    getUserFromLocalStorage(choosedDifficultyLevel),
   );
   alert(
     `Выбран уровень сложности: ${getUserFromLocalStorage(
-      choosedDifficultyLevel
-    )}`
+      choosedDifficultyLevel,
+    )}`,
   );
 });
