@@ -9,11 +9,12 @@ a {
 }
 
 @font-face {
-  font-family: StratosSkyeng_n;
-  src: url(assets/fonts/stratosskyengweb-regular.woff2);
+  font-family: "StratosSkyeng_n";
+  src: url("assets/fonts/stratosskyengweb-regular.woff2");
 }
+
 .container {
-  font-family: StratosSkyeng_n;
+  font-family: "StratosSkyeng_n", sans-serif;
   background-color: #004980;
   height: 100vh;
   display: flex;
@@ -31,32 +32,35 @@ a {
   justify-content: space-evenly;
   align-items: center;
 }
-.window-start__message {
+
+.window-start-message {
   width: 208px;
   color: #004980;
   font-size: 40px;
   line-height: 48px;
   text-align: center;
 }
-.window-start__button {
+
+.window-start-button {
   width: 246px;
   height: 50px;
   border-radius: 12px;
   background-color: #7ac100;
   border: none;
-  color: #ffffff;
-  font-family: StratosSkyeng_n;
+  color: #fff;
+  font-family: "StratosSkyeng_n", sans-serif;
   font-size: 24px;
   line-height: 32px;
   text-align: center;
   cursor: pointer;
 }
-.window-start__button:hover {
+
+.window-start-button:hover {
   background-color: #00c2ff;
   border: 1px solid #00c2ff;
 }
 
-.window-start_checkbox strong {
+.window-start-checkbox strong {
   color: #0080c1;
   font-size: 64px;
   line-height: 72px;
@@ -69,7 +73,7 @@ a {
   gap: 24px;
 }
 
-.choose-difficulty-toolbar input[type=radio] {
+.choose-difficulty-toolbar input[type="radio"] {
   display: none;
 }
 
@@ -80,7 +84,7 @@ a {
   height: 98px;
   font-size: 64px;
   line-height: 72px;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 12px;
   border: none;
   text-align: center;
@@ -88,14 +92,14 @@ a {
   cursor: pointer;
 }
 
-.choose-difficulty-toolbar input[type=radio]:checked + label {
-  background-color: #00c2ff;
-  border: 1px solid #00c2ff;
-  color: #fff;
-}
-
 .choose-difficulty-toolbar label:hover {
   background-color: #7ac100;
   border: 1px solid #7ac100;
   color: #fff;
-}/*# sourceMappingURL=styles.css.map */
+}
+
+.choose-difficulty-toolbar input[type="radio"]:checked + label {
+  background-color: #00c2ff;
+  border: 1px solid #00c2ff;
+  color: #fff;
+}
