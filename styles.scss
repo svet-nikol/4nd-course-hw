@@ -31,33 +31,33 @@ a {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-}
 
-.window-start-message {
-  width: 208px;
-  color: #004980;
-  font-size: 40px;
-  line-height: 48px;
-  text-align: center;
-}
+  &-message {
+    width: 208px;
+    color: #004980;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+  }
 
-.window-start-button {
-  width: 246px;
-  height: 50px;
-  border-radius: 12px;
-  background-color: #7ac100;
-  border: none;
-  color: #fff;
-  font-family: "StratosSkyeng_n", sans-serif;
-  font-size: 24px;
-  line-height: 32px;
-  text-align: center;
-  cursor: pointer;
-}
+  &-button {
+    width: 246px;
+    height: 50px;
+    border-radius: 12px;
+    background-color: #7ac100;
+    border: none;
+    color: #fff;
+    font-family: "StratosSkyeng_n", sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    cursor: pointer;
+  }
 
-.window-start-button:hover {
-  background-color: #00c2ff;
-  border: 1px solid #00c2ff;
+  &-button:hover {
+    background-color: #00c2ff;
+    border: 1px solid #00c2ff;
+  }
 }
 
 .window-start-checkbox strong {

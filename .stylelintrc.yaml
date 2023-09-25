@@ -1,0 +1,34 @@
+extends:
+  - stylelint-config-standard
+  - stylelint-prettier/recommended
+  - stylelint-config-recommended-scss
+
+plugins:
+  - stylelint-scss # Если вы используете SCSS
+
+syntax: scss
+
+rules:
+  # Общие правила для стиля кодирования
+  indentation: 2 # Отступы в 2 пробела (или ваш выбор)
+  linebreaks: unix # Переводы строк в формате Unix
+  no-empty-source: true # Запрет пустых файлов
+  no-eol-whitespace: true # Запрет пробелов в конце строк
+  selector-class-pattern:
+    - "^[a-z0-9-]+$"
+    - message: "Class names should be in snake_case or kebab-case."
+
+  # Правила для SCSS
+  scss/at-rule-no-unknown: true # Запрещаем неизвестные at-правила
+  scss/selector-no-redundant-nesting-selector: true # Запрещаем избыточные вложенные селекторы
+  scss/double-slash-comment-whitespace-inside: always # Обязательные пробелы внутри двойных слеш-комментариев
+
+  # Правила для форматирования
+  declaration-block-trailing-semicolon: always # Всегда требуем точку с запятой в конце блока объявлений
+  block-closing-brace-newline-after: always # Всегда добавляем новую строку после закрывающей фигурной скобки
+  selector-list-comma-newline-after: always # Всегда добавляем новую строку после запятой в списке селекторов
+
+# Дополнительные правила по вашему выбору
+ignoreFiles:
+  - "**/*.js" # Игнорировать файлы JavaScript
+  - "**/*.jsx" # Игнорировать файлы JSX
