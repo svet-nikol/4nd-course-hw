@@ -1,7 +1,7 @@
 import {
   saveLevelToLocalStorage,
   getLevelFromLocalStorage,
-} from "../localStorage.mjs";
+} from "../localStorage.js";
 import { renderGameComponent } from "./game-page.js";
 import { allCards } from "../cards.js";
 

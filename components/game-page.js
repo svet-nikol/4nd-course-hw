@@ -70,10 +70,20 @@ export function renderGameComponent({
     renderGameApp();
 
     const startAgainButtonEl = document.querySelector(
-      `button[class="button-start-again"]`
+      'button[class="button-start-again"]'
     );
     startAgainButtonEl.addEventListener("click", () => {
       renderStartComponent({ appEl, choosedDifficultyLevel });
     });
+
+    const turnFaceDownCards = () => {
+      for (let cardEl of document.querySelectorAll('button[class="cards"]')) {
+        cardEl.innerHTML = `
+        <img src="./assets/images/face-down.svg" class="cards-image">
+        `;
+      }
+      return true;
+    };
+    setTimeout(turnFaceDownCards, 5000);
   }
 }
