@@ -34,7 +34,7 @@ export function renderGameComponent({
       return shuffledPresetCards;
     };
     const presetCards = getPresetCards();
-    console.log("Сгенерированные карты:", presetCards);
+    // console.log("Сгенерированные карты:", presetCards);
 
     const renderGameApp = () => {
       const presetCardsHtml = presetCards
@@ -70,7 +70,7 @@ export function renderGameComponent({
     renderGameApp();
 
     const startAgainButtonEl = document.querySelector(
-      'button[class="button-start-again"]'
+      'button[class="button-start-again"]',
     );
     startAgainButtonEl.addEventListener("click", () => {
       renderStartComponent({ appEl, choosedDifficultyLevel });

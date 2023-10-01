@@ -7,19 +7,13 @@
   "extends": ["eslint:recommended", "prettier"],
   "plugins": ["prettier"],
   "parserOptions": {
-    "ecmaVersion": 2020
+    "ecmaVersion": 2020,
+    "sourceType": "module"
   },
   "rules": {
     "prettier/prettier": "error",
     "camelcase": ["error"],
-    "eqeqeq": ["error", "always"]
-  },
-  "parserOptions": {
-    "sourceType": "module"
+    "eqeqeq": ["error", "always"],
+    "no-unused-vars": "warn"
   }
 }
-
-// Настройка исключений: Если есть случаи, когда необходимо отключить определенные правила для определенных файлов или участков кода, можно настроить исключения с использованием комментариев ESLint, таких как /* eslint-disable */ или /* eslint-disable-next-line */.
-
-
-// Интеграция с другими инструментами: Представленная конфигурация интегрирует ESLint с Prettier для форматирования кода. Вы можете также интегрировать ESLint с другими инструментами, такими как TypeScript (если используется TypeScript), Stylelint (для проверки стилей CSS), или другими инструментами для улучшения качества кода.

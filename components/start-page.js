@@ -1,7 +1,4 @@
-import {
-  saveLevelToLocalStorage,
-  getLevelFromLocalStorage,
-} from "../localStorage.js";
+import { saveLevelToLocalStorage } from "../saveLevelToLocalStorage.js";
 import { renderGameComponent } from "./game-page.js";
 import { allCards } from "../cards.js";
 
@@ -42,7 +39,7 @@ export function renderStartComponent({ appEl, choosedDifficultyLevel }) {
   renderStartApp();
 
   const radioInputs = document.querySelectorAll(
-    'input[type="radio"][name="difficulty-levels"]'
+    'input[type="radio"][name="difficulty-levels"]',
   );
 
   function handleRadioChange(event) {
@@ -55,7 +52,7 @@ export function renderStartComponent({ appEl, choosedDifficultyLevel }) {
   });
 
   const startButtonEl = document.querySelector(
-    'button[class="window-start-button"]'
+    'button[class="window-start-button"]',
   );
 
   startButtonEl.addEventListener("click", () => {
@@ -69,6 +66,7 @@ export function renderStartComponent({ appEl, choosedDifficultyLevel }) {
     } else {
       console.log("Выберите уровень сложности перед началом игры.");
     }
-    // return getLevelFromLocalStorage(choosedDifficultyLevel);
   });
 }
+
+// return getLevelFromLocalStorage(choosedDifficultyLevel);
