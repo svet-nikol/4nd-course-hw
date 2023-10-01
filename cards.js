@@ -1,4 +1,3 @@
-// import { allCards } from "./index.js";
 export const allCards = [
   {
     suit: "hearts",
@@ -181,7 +180,6 @@ export const allCards = [
     image: "./assets/images/cards/spades/Ace-spades.svg",
   },
 ];
-
 
 // const suits = ["hearts", "diamonds", "clubs", "spades"];
 // const ranks = ["6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"];

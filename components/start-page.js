@@ -2,8 +2,8 @@ import {
   saveLevelToLocalStorage,
   getLevelFromLocalStorage,
 } from "../localStorage.mjs";
-import { renderGameComponent } from "./game-page.mjs";
-import { allCards } from "../cards.mjs";
+import { renderGameComponent } from "./game-page.js";
+import { allCards } from "../cards.js";
 
 export function renderStartComponent({ appEl, choosedDifficultyLevel }) {
   const renderStartApp = () => {
@@ -42,7 +42,7 @@ export function renderStartComponent({ appEl, choosedDifficultyLevel }) {
   renderStartApp();
 
   const radioInputs = document.querySelectorAll(
-    'input[type="radio"][name="difficulty-levels"]'
+    'input[type="radio"][name="difficulty-levels"]',
   );
 
   function handleRadioChange(event) {
@@ -55,19 +55,19 @@ export function renderStartComponent({ appEl, choosedDifficultyLevel }) {
   });
 
   const startButtonEl = document.querySelector(
-    'button[class="window-start-button"]'
+    'button[class="window-start-button"]',
   );
 
   startButtonEl.addEventListener("click", () => {
-    // console.log(
-    //   "уровень сложности из start-page:",
-    //   getLevelFromLocalStorage(choosedDifficultyLevel)
-    // );
     if (choosedDifficultyLevel !== null) {
-        renderGameComponent({ appEl, allCards, renderStartComponent, choosedDifficultyLevel });
-    }
-    else {
-        console.log("Выберите уровень сложности перед началом игры.");
+      renderGameComponent({
+        appEl,
+        allCards,
+        renderStartComponent,
+        choosedDifficultyLevel,
+      });
+    } else {
+      console.log("Выберите уровень сложности перед началом игры.");
     }
     // return getLevelFromLocalStorage(choosedDifficultyLevel);
   });

@@ -103,3 +103,91 @@ a {
   border: 1px solid #00c2ff;
   color: #fff;
 }
+
+.button-start-again {
+  width: 246px;
+  height: 50px;
+  border-radius: 12px;
+  background-color: #7ac100;
+  border: none;
+  color: #fff;
+  font-family: "StratosSkyeng_n", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.window-game {
+  max-width: 979px;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: space-between;
+}
+
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  align-items: flex-end;
+}
+
+.timer-box {
+  max-width: 155px;
+  flex-wrap: wrap;
+}
+
+.time-box-up-line {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.min-sec {
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+  padding-left: 45px;
+  padding-right: 10px;
+}
+
+.timer {
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 68px;
+  color: #fff;
+}
+
+.button-start-again:hover {
+  background-color: #00c2ff;
+  border: 1px solid #00c2ff;
+}
+
+.card-field {
+  padding-top: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-self: center;
+  gap: 30px;
+}
+
+.-level-1 {
+  max-width: calc(95px * 3 + 30px * 2);
+}
+
+.-level-2 {
+  max-width: calc(95px * 4 + 30px * 3);
+}
+
+.-level-3 {
+  max-width: calc(95px * 6 + 30px * 5);
+}
+
+.cards {
+  width: 95px;
+  height: 133px;
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+}

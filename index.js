@@ -1,5 +1,4 @@
-
-import { renderStartComponent } from "./components/start-page.mjs";
+import { renderStartComponent } from "./components/start-page.js";
 // import { renderGameComponent } from "./components/game-page.mjs";
 
 // const selectedCard = allCardsResult[10];
@@ -10,6 +9,4 @@ import { renderStartComponent } from "./components/start-page.mjs";
 export const appEl = document.getElementById("app");
 export let choosedDifficultyLevel = null;
 
-renderStartComponent({appEl, choosedDifficultyLevel});
-
-
+renderStartComponent({ appEl, choosedDifficultyLevel });
