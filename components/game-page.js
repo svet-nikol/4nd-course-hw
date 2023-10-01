@@ -1,6 +1,3 @@
-// import { allCards } from "../cards.mjs";
-// import { renderStartComponent } from "./start-page.mjs";
-// import { choosedDifficultyLevel } from "../index.js";
 import _ from "lodash";
 
 export function renderGameComponent({
@@ -73,7 +70,7 @@ export function renderGameComponent({
     renderGameApp();
 
     const startAgainButtonEl = document.querySelector(
-      'button[class="button-start-again"]'
+      `button[class="button-start-again"]`
     );
     startAgainButtonEl.addEventListener("click", () => {
       renderStartComponent({ appEl, choosedDifficultyLevel });
