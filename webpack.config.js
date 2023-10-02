@@ -3,4 +3,7 @@ module.exports = {
   output: {
     filename: "index.js", // Выходной файл, который подключаем к HTML, сохранится он по пути "./dist/index.js"
   },
+  experiments: {
+    outputModule: true,
+  },
 };
