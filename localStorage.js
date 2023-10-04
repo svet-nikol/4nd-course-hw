@@ -5,10 +5,10 @@ export function saveLevelToLocalStorage(choosedDifficultyLevel) {
   );
 }
 
-export function getLevelFromLocalStorage(choosedDifficultyLevel) {
-  try {
-    return JSON.parse(window.localStorage.getItem("choosedDifficultyLevel"));
-  } catch (error) {
-    return null;
-  }
-}
+// export function getLevelFromLocalStorage(choosedDifficultyLevel) {
+//   try {
+//     return JSON.parse(window.localStorage.getItem("choosedDifficultyLevel"));
+//   } catch (error) {
+//     return null;
+//   }
+// }
