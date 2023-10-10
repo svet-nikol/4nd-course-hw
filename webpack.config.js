@@ -7,12 +7,12 @@ const mode =
   process.env.NODE_ENV === "production" ? "production" : "development";
 
 module.exports = {
-  entry: "./index.js", // Входной файл, в котором мы пишем свой код
+  entry: ["./index.js", "./styles.scss"], // Входной файл, в котором мы пишем свой код
   mode,
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
@@ -42,7 +42,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./index.html",
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "styles.css",
+    }),
   ],
   experiments: {
     outputModule: true,

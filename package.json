@@ -10,7 +10,7 @@
     "lint:css": "stylelint ./**.scss ./**.css --fix",
     "prepare": "husky install",
     "lint": "npm run lint:js && npm run lint:css",
-    "build": "set NODE_ENV=production && webpack",
+    "build": "set NODE_ENV='production' && webpack",
     "start": "webpack serve --open"
   },
   "author": "",
@@ -27,6 +27,7 @@
     "husky": "^8.0.3",
     "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^3.0.3",
+    "sass": "^1.69.1",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
     "stylelint": "^15.10.3",
