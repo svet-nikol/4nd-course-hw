@@ -79,7 +79,7 @@ export function renderGameComponent({
     const turnFaceDownCards = () => {
       for (let cardEl of document.querySelectorAll('button[class="cards"]')) {
         cardEl.innerHTML = `
-        <img src="./assets/images/face-down.svg" class="cards-image">
+        <img src="./static/images/face-down.svg" class="cards-image">
         `;
       }
       return true;
