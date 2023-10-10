@@ -32,6 +32,7 @@ module.exports = {
   output: {
     filename: "index.js", // Выходной файл, который подключаем к HTML, сохранится он по пути "./dist/index.js"
     path: path.resolve(__dirname, "dist"),
+    scriptType: "text/javascript",
     clean: true,
   },
   plugins: [
