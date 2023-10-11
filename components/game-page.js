@@ -34,7 +34,6 @@ export function renderGameComponent({
       return shuffledPresetCards;
     };
     const presetCards = getPresetCards();
-    // console.log("Сгенерированные карты:", presetCards);
 
     const renderGameApp = () => {
       const presetCardsHtml = presetCards
@@ -70,7 +69,7 @@ export function renderGameComponent({
     renderGameApp();
 
     const startAgainButtonEl = document.querySelector(
-      'button[class="button-start-again"]',
+      'button[class="button-start-again"]'
     );
     startAgainButtonEl.addEventListener("click", () => {
       renderStartComponent({ appEl, choosedDifficultyLevel });
@@ -85,5 +84,59 @@ export function renderGameComponent({
       return true;
     };
     setTimeout(turnFaceDownCards, 5000);
+
+    let clickedCards = [];
+
+    const pairCardsClick = (event) => {
+      const clickedButton = event.target.parentNode;
+      const index = clickedButton.getAttribute("data-index");
+      const clickedCard = presetCards[index];
+
+      // Если карта уже открыта, игнорируем нажатие
+      if (clickedCards.includes(index)) {
+        return;
+      }
+
+      // Открываем выбранную карту
+      clickedButton.innerHTML = `
+      <img src="./static/images/cards/${clickedCard.suit}/${clickedCard.rank}-${clickedCard.suit}.svg" class="cards-image">
+      `;
+      clickedCards.push(index);
+
+      // Если открыто две карты, сравниваем их
+      if (clickedCards.length === 2) {
+        const firstCard = presetCards[clickedCards[0]];
+        const secondCard = presetCards[clickedCards[1]];
+
+        if (
+          firstCard.suit === secondCard.suit &&
+          firstCard.rank === secondCard.rank
+        ) {
+          // Карты совпали, можно обнулить массив пары и продолжать игру
+          clickedCards = [];
+        } else {
+          clickedCards = [];
+          alert("Вы проиграли!"); // вторая карта не совпадает, выводится алерт и после вторая карта переворачивается
+          // Карты не совпали, показываем вторую карту и через три секунды вызываем стартовое окно
+          setTimeout(() => {
+            renderStartComponent({ appEl, choosedDifficultyLevel });
+          }, 3000); // через 3 секунды показываем экран старта
+        }
+      }
+
+      // alert("Вы победили!");
+      // // все карты совпали, выводим алерт с поздравлением и через три секунды вызываем стартовое окно
+      // setTimeout(() => {
+      //   renderStartComponent({ appEl, choosedDifficultyLevel });
+      // }, 3000); // через 3 секунды показываем экран старта
+    };
+
+    // Добавляем обработчик события для каждой кнопки
+    const cardButtons = document.querySelectorAll('button[class="cards"]');
+    cardButtons.forEach((button, index) => {
+      button.dataset.index = index; // Сохраняем индекс карты в data-атрибут
+      console.log("кнопка с data-атрибутом:", button);
+      button.addEventListener("click", pairCardsClick);
+    });
   }
 }
