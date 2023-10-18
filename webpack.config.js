@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const mode = "development";
+const mode = "production";
 
 module.exports = {
   entry: ["./index.js", "./styles.scss"], // Входной файл, в котором мы пишем свой код
@@ -27,7 +27,7 @@ module.exports = {
   optimization: {
     minimizer: ["...", new CssMinimizerPlugin()],
   },
-  devtool: process.env.NODE_ENV === "production" ? false : "source-map",
+  devtool: mode === "production" ? false : "source-map",
   output: {
     filename: "index.js", // Выходной файл, который подключаем к HTML, сохранится он по пути "./dist/index.js"
     path: path.resolve(__dirname, "dist"),
