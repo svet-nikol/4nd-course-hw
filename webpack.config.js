@@ -3,8 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const mode =
-  process.env.NODE_ENV === "production" ? "production" : "development";
+const mode = "development";
 
 module.exports = {
   entry: ["./index.js", "./styles.scss"], // Входной файл, в котором мы пишем свой код
