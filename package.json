@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "webpack --mode development --watch",
     "format": "prettier --write .",
-    "lint:js": "eslint ./**.js --fix",
-    "lint:css": "stylelint ./**.scss ./**.css --fix",
+    "lint:js": "eslint ./**.js",
+    "lint:css": "stylelint ./**.scss ./**.css",
     "prepare": "husky install",
     "lint": "npm run lint:js && npm run lint:css",
     "build": "set NODE_ENV='production' && webpack",

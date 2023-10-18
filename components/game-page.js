@@ -124,15 +124,13 @@ export function renderGameComponent({
           // Карты не совпали, показываем вторую карту и через три секунды вызываем стартовое окно
           setTimeout(() => {
             renderStartComponent({ appEl, choosedDifficultyLevel });
-          }, 3000); // через 3 секунды показываем экран старта
+          }, 1000); // через 3 секунды показываем экран старта
         }
       }
 
       if (clickedAllCards.length === presetCards.length) {
-        setTimeout(() => {
-          alert("Вы победили!");
-          renderStartComponent({ appEl, choosedDifficultyLevel });
-        }, 3000);
+        alert("Вы победили!");
+        renderStartComponent({ appEl, choosedDifficultyLevel });
       }
     };
 

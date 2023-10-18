@@ -1,6 +1,6 @@
-/* !******************************************************************************************************!*\
+/*!******************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./styles.scss ***!
-  \  ******************************************************************************************************/
+  \******************************************************************************************************/
 * {
   margin: 0;
   padding: 0;
@@ -13,9 +13,8 @@ a {
 
 @font-face {
   font-family: "StratosSkyeng_n";
-  src: url("ce93393e831d32412096.woff2");
+  src: url(ce93393e831d32412096.woff2);
 }
-
 .container {
   font-family: "StratosSkyeng_n", sans-serif;
   background-color: #004980;
@@ -35,7 +34,6 @@ a {
   justify-content: space-evenly;
   align-items: center;
 }
-
 .window-start-message {
   width: 208px;
   color: #004980;
@@ -43,7 +41,6 @@ a {
   line-height: 48px;
   text-align: center;
 }
-
 .window-start-button {
   width: 246px;
   height: 50px;
@@ -57,7 +54,6 @@ a {
   text-align: center;
   cursor: pointer;
 }
-
 .window-start-button:hover {
   background-color: #00c2ff;
   border: 1px solid #00c2ff;
@@ -194,3 +190,5 @@ a {
   border: 0;
   cursor: pointer;
 }
+
+/*# sourceMappingURL=styles.css.map*/
