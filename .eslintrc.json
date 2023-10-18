@@ -5,7 +5,7 @@
     "node": true
   },
   "extends": ["prettier", "eslint:recommended"],
-  "plugins": ["prettier", "eslint-plugin-prettier", "eslint-config-prettier"],
+  "plugins": ["prettier"],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",

@@ -69,7 +69,7 @@ export function renderGameComponent({
     renderGameApp();
 
     const startAgainButtonEl = document.querySelector(
-      'button[class="button-start-again"]',
+      'button[class="button-start-again"]'
     );
     startAgainButtonEl.addEventListener("click", () => {
       renderStartComponent({ appEl, choosedDifficultyLevel });
