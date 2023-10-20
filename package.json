@@ -9,23 +9,35 @@
     "lint:js": "eslint ./**.js --fix",
     "lint:css": "stylelint ./**.scss ./**.css --fix",
     "prepare": "husky install",
-    "lint": "npm run lint:js && npm run lint:css"
+    "lint": "npm run lint:js && npm run lint:css",
+    "build": "SET NODE_ENV=production && webpack",
+    "start": "webpack serve --open"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "html-webpack-plugin": "^5.5.3",
     "husky": "^8.0.3",
+    "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^3.0.3",
+    "sass": "^1.69.1",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
     "stylelint": "^15.10.3",
     "stylelint-config-recommended-scss": "^13.0.0",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.0.2",
     "stylelint-scss": "^5.2.1",
     "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
     "lodash": "^4.17.21"

@@ -4,11 +4,12 @@
     "es6": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "prettier"],
+  "extends": ["prettier", "eslint:recommended"],
   "plugins": ["prettier"],
   "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module"
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "allowUnicodeIdentifiers": true
   },
   "rules": {
     "prettier/prettier": "error",
