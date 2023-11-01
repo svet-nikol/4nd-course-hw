@@ -1,6 +1,13 @@
-import _ from "lodash";
+import * as _ from "lodash";
+import { Card } from "../types";
 
-export const getPresetCards = ({ allCards, choosedDifficultyLevel }) => {
+export const getPresetCards = ({
+  allCards,
+  choosedDifficultyLevel,
+}: {
+  allCards: Card[];
+  choosedDifficultyLevel: string;
+}) => {
   let amount;
   let difficultyLevelInt = parseFloat(choosedDifficultyLevel);
   if (difficultyLevelInt === 1) {
@@ -28,22 +35,30 @@ export const getPresetCards = ({ allCards, choosedDifficultyLevel }) => {
 };
 
 export const turnFaceDownCards = () => {
-  for (let cardEl of document.querySelectorAll('button[class="cards"]')) {
-    cardEl.innerHTML = `
+  const cardEls = document.querySelectorAll('button[class="cards"]');
+  cardEls.forEach((card) => {
+    const element = card as HTMLButtonElement;
+    element.innerHTML = `
     <img src="./static/images/face-down.svg" class="cards-image">
     `;
-    cardEl.disabled = false;
-  }
+    element.disabled = false;
+  })
+  // for (let cardEl of document.querySelectorAll('button[class="cards"]')) {
+  //   cardEl.innerHTML = `
+  //   <img src="./static/images/face-down.svg" class="cards-image">
+  //   `;
+  //   cardEl.disabled = false;
+  // }
   return true;
 };
 
-export const timerElRender = (timerContent) => {
+export const timerElRender = (timerContent: string) => {
   const timerEl = document.getElementById("timer");
   timerEl.textContent = `${timerContent}`;
   return true;
 };
 
-export const formatTime = (time) => {
+export const formatTime = (time: number) => {
   const minutes = Math.floor(time / 60);
   const remainingSeconds = time % 60;
   const formattedMinutes = _.padStart(minutes.toString(), 2, "0");

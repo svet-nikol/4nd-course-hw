@@ -8,6 +8,7 @@
     "format": "prettier --write .",
     "lint:js": "eslint ./**.js --fix",
     "lint:css": "stylelint ./**.scss ./**.css --fix",
+    "lint:ts": "tsc --noEmit",
     "prepare": "husky install",
     "lint": "npm run lint:js && npm run lint:css",
     "build": "SET NODE_ENV=production && webpack",
@@ -16,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/lodash": "^4.14.200",
     "copy-webpack-plugin": "^11.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.8.1",
