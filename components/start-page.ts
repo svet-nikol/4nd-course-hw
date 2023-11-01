@@ -2,7 +2,10 @@ import { saveLevelToLocalStorage } from "../saveLevelToLocalStorage.js";
 import { renderGameComponent } from "./game-page.js";
 import { allCards } from "../cards.js";
 
-export function renderStartComponent({ appEl, choosedDifficultyLevel }) {
+export function renderStartComponent({ appEl, choosedDifficultyLevel }: {
+  appEl: HTMLElement,
+  choosedDifficultyLevel: string,
+}) {
   const renderStartApp = () => {
     const appHtml = `<div class="window-start">
           <p class="window-start-message">Выбери сложность</p>
@@ -39,11 +42,13 @@ export function renderStartComponent({ appEl, choosedDifficultyLevel }) {
   renderStartApp();
 
   const radioInputs = document.querySelectorAll(
-    'input[type="radio"][name="difficulty-levels"]',
+    'input[type="radio"][name="difficulty-levels"]'
   );
 
-  function handleRadioChange(event) {
-    choosedDifficultyLevel = event.target.value;
+  function handleRadioChange(event: MouseEvent | TouchEvent) {
+    const target = event.target as HTMLInputElement;
+    choosedDifficultyLevel = target.value;
+    // choosedDifficultyLevel = event.target.value;
     saveLevelToLocalStorage(choosedDifficultyLevel);
   }
 
@@ -52,7 +57,7 @@ export function renderStartComponent({ appEl, choosedDifficultyLevel }) {
   });
 
   const startButtonEl = document.querySelector(
-    'button[class="window-start-button"]',
+    'button[class="window-start-button"]'
   );
 
   startButtonEl.addEventListener("click", () => {
@@ -60,7 +65,7 @@ export function renderStartComponent({ appEl, choosedDifficultyLevel }) {
       renderGameComponent({
         appEl,
         allCards,
-        renderStartComponent,
+        renderStartComponent: renderStartComponent,
         choosedDifficultyLevel,
       });
     } else {

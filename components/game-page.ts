@@ -4,12 +4,18 @@ import {
   timerElRender,
   formatTime,
 } from "./helpers.js";
+import { Card } from "../types";
 
 export function renderGameComponent({
   appEl,
   allCards,
   renderStartComponent,
   choosedDifficultyLevel,
+}: {
+  appEl: HTMLElement;
+  allCards: Card[];
+  renderStartComponent: (args: { appEl: HTMLElement; choosedDifficultyLevel: string }) => void;
+  choosedDifficultyLevel: string;
 }) {
   if (renderStartComponent) {
     const presetCards = getPresetCards({ allCards, choosedDifficultyLevel });
@@ -18,7 +24,7 @@ export function renderGameComponent({
 
     const renderGameApp = () => {
       const presetCardsHtml = presetCards
-        .map((card) => {
+        .map((card: Card) => {
           return `
             <button class="cards" disabled="true">
                 <img src="${card.image}" class="cards-image">
@@ -50,13 +56,13 @@ export function renderGameComponent({
     renderGameApp();
 
     const startAgainButtonEl = document.querySelector(
-      'button[class="button-start-again"]',
+      'button[class="button-start-again"]'
     );
     startAgainButtonEl.addEventListener("click", () => {
-      renderStartComponent({ appEl, choosedDifficultyLevel });
+      renderStartComponent({ appEl, choosedDifficultyLevel });   // { appEl, choosedDifficultyLevel }
     });
 
-    let intervalId;
+    let intervalId: NodeJS.Timeout;
     const timer = () => {
       intervalId = setInterval(() => {
         time += 1;
@@ -70,12 +76,15 @@ export function renderGameComponent({
       timer();
     }, 5000);
 
-    let clickedPairCards = [];
-    let clickedAllCards = [];
+    let clickedPairCards: number[];
+    let clickedAllCards: number[];
 
-    const pairCardsClick = (event) => {
-      const clickedButton = event.target.parentNode;
-      const index = clickedButton.getAttribute("data-index");
+    const pairCardsClick = (event: MouseEvent | TouchEvent) => {
+      const clickedButton = (event.target as HTMLElement).parentNode as Element;
+      const index: number = parseInt(
+        (clickedButton as HTMLElement).getAttribute("data-index"),
+        10
+      );
       const clickedCard = presetCards[index];
 
       // Если карта уже открыта, игнорируем нажатие
@@ -106,7 +115,7 @@ export function renderGameComponent({
           clearInterval(intervalId);
           setTimeout(() => {
             alert(`Вы проиграли! затраченное время: ${timerContent}`); // вторая карта не совпадает, выводится алерт и после вторая карта переворачивается
-            renderStartComponent({ appEl, choosedDifficultyLevel });
+            renderStartComponent({ appEl, choosedDifficultyLevel });  // { appEl, choosedDifficultyLevel }
           }, 10); // через 1 секунду показываем экран старта
         }
       }
@@ -115,7 +124,7 @@ export function renderGameComponent({
         clearInterval(intervalId);
         setTimeout(() => {
           alert(`Вы победили! затраченное время: ${timerContent}`);
-          renderStartComponent({ appEl, choosedDifficultyLevel });
+          renderStartComponent({ appEl, choosedDifficultyLevel });  // { appEl, choosedDifficultyLevel }
         }, 1000);
       }
     };
@@ -123,7 +132,8 @@ export function renderGameComponent({
     // Добавляем обработчик события для каждой карты-кнопки чтобы карты переворачивались лицом вверх
     const cardButtons = document.querySelectorAll('button[class="cards"]');
     cardButtons.forEach((button, index) => {
-      button.dataset.index = index; // Сохраняем индекс карты в data-атрибут
+      const element = button as HTMLElement;
+      element.dataset.index = index.toString(); // Сохраняем индекс карты в data-атрибут
       button.addEventListener("click", pairCardsClick);
     });
   }
