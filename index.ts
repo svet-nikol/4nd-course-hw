@@ -1,6 +1,8 @@
-import { renderStartComponent } from "./components/start-page.js";
+import { renderStartComponent } from "./components/start-page";
 
-export const appEl: HTMLElement = document.getElementById("app");
-export let choosedDifficultyLevel: string = '';
+export const appEl: HTMLElement | null = document.getElementById("app");
+export let choosedDifficultyLevel: string = "";
 
-renderStartComponent({ appEl, choosedDifficultyLevel });
+if (appEl !== null) {
+  renderStartComponent({ appEl, choosedDifficultyLevel });
+}

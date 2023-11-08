@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "strict": false, // Включает все жесткие проверки типов
+    "strict": true, // Включает все жесткие проверки типов
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "es6",
@@ -11,4 +11,6 @@
   }
 }
 
-// "allowImportingTsExtensions": true
+
+// "allowImportingTsExtensions": true,
+// "noEmit": true

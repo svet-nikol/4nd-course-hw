@@ -3,10 +3,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const mode = "production";
+const mode = "development";
 
 module.exports = {
-  entry: ["./index.ts", "./index.js", "./styles.scss"], // "./src/index.ts",
+  entry: ["./index.ts", "./styles.scss"], // "./src/index.ts", "./index.js",
   mode,
   module: {
     rules: [

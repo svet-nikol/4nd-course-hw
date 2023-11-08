@@ -54,8 +54,11 @@ export const turnFaceDownCards = () => {
 
 export const timerElRender = (timerContent: string) => {
   const timerEl = document.getElementById("timer");
-  timerEl.textContent = `${timerContent}`;
-  return true;
+  if (timerEl !== null) {
+    timerEl.textContent = `${timerContent}`;
+    return true;    
+  }
+  return false;
 };
 
 export const formatTime = (time: number) => {
