@@ -28,6 +28,7 @@ export function renderGameComponent({
     presetCards = getPresetCards({ allCards, choosedDifficultyLevel });
     let time = 0;
     let timerContent = formatTime(time);
+    let userWin: boolean = false;
 
     const renderGameApp = () => {
       const presetCardsHtml = presetCards
@@ -67,6 +68,7 @@ export function renderGameComponent({
     ) as HTMLButtonElement;
     if (startAgainButtonEl !== null) {
       startAgainButtonEl.addEventListener("click", () => {
+        clearInterval(intervalId);
         renderStartComponent({ appEl, choosedDifficultyLevel });
       });
     }
@@ -131,6 +133,7 @@ export function renderGameComponent({
               renderFinalComponent({
                 appEl: appEl,
                 timerContent: timerContent,
+                userWin: userWin,
                 renderStartComponent: renderStartComponent,
                 choosedDifficultyLevel: choosedDifficultyLevel,
               });
@@ -140,9 +143,15 @@ export function renderGameComponent({
 
         if (clickedAllCards.length === presetCards.length) {
           clearInterval(intervalId);
+          userWin = true;
           setTimeout(() => {
-            alert(`Вы победили! затраченное время: ${timerContent}`);
-            renderStartComponent({ appEl, choosedDifficultyLevel });
+            renderFinalComponent({
+              appEl: appEl,
+              timerContent: timerContent,
+              userWin: userWin,
+              renderStartComponent: renderStartComponent,
+              choosedDifficultyLevel: choosedDifficultyLevel,
+            });
           }, 100);
         }
       }
