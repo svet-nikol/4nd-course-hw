@@ -1,10 +1,14 @@
 import {
   getPresetCards,
   turnFaceDownCards,
+  turnFaceUpCards,
   timerElRender,
   formatTime,
 } from "./helpers";
+import { renderFinalComponent } from "./final-page";
 import { Card } from "../types";
+
+export let presetCards: Card[] = [];
 
 export function renderGameComponent({
   appEl,
@@ -21,7 +25,7 @@ export function renderGameComponent({
   choosedDifficultyLevel: string;
 }) {
   if (renderStartComponent) {
-    const presetCards = getPresetCards({ allCards, choosedDifficultyLevel });
+    presetCards = getPresetCards({ allCards, choosedDifficultyLevel });
     let time = 0;
     let timerContent = formatTime(time);
 
@@ -46,7 +50,7 @@ export function renderGameComponent({
                     </div>
                     <p class="timer" id="timer">00.00</p>
                 </div>
-                <button class="button-start-again">Начать заново</button>
+                <button class="button-start-again" disabled="true">Начать заново</button>
             </div>
             <div class="card-field -level-${choosedDifficultyLevel}">
                 ${presetCardsHtml}
@@ -60,10 +64,10 @@ export function renderGameComponent({
 
     const startAgainButtonEl = document.querySelector(
       'button[class="button-start-again"]'
-    );
+    ) as HTMLButtonElement;
     if (startAgainButtonEl !== null) {
       startAgainButtonEl.addEventListener("click", () => {
-        renderStartComponent({ appEl, choosedDifficultyLevel }); // { appEl, choosedDifficultyLevel }
+        renderStartComponent({ appEl, choosedDifficultyLevel });
       });
     }
 
@@ -79,6 +83,9 @@ export function renderGameComponent({
     setTimeout(() => {
       turnFaceDownCards();
       timer();
+      if (startAgainButtonEl !== null) {
+        startAgainButtonEl.disabled = false;
+      }
     }, 5000);
 
     let clickedPairCards: number[] = [];
@@ -117,12 +124,17 @@ export function renderGameComponent({
             clickedPairCards = [];
             // Карты совпали, можно обнулить массив пары и продолжать игру
           } else {
-            // Карты не совпали, показываем вторую карту и через одну секунду вызываем стартовое окно
+            // Карты не совпали, переворачиваем все карты и через одну секунду вызываем окно с результатами
             clearInterval(intervalId);
+            turnFaceUpCards();
             setTimeout(() => {
-              alert(`Вы проиграли! затраченное время: ${timerContent}`); // вторая карта не совпадает, выводится алерт и после вторая карта переворачивается
-              renderStartComponent({ appEl, choosedDifficultyLevel }); // { appEl, choosedDifficultyLevel }
-            }, 10); // через 1 секунду показываем экран старта
+              renderFinalComponent({
+                appEl: appEl,
+                timerContent: timerContent,
+                renderStartComponent: renderStartComponent,
+                choosedDifficultyLevel: choosedDifficultyLevel,
+              });
+            }, 1000);
           }
         }
 
@@ -130,8 +142,8 @@ export function renderGameComponent({
           clearInterval(intervalId);
           setTimeout(() => {
             alert(`Вы победили! затраченное время: ${timerContent}`);
-            renderStartComponent({ appEl, choosedDifficultyLevel }); // { appEl, choosedDifficultyLevel }
-          }, 1000);
+            renderStartComponent({ appEl, choosedDifficultyLevel });
+          }, 100);
         }
       }
     };

@@ -22,9 +22,11 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
-.window-start {
+.window-start,
+.window-final {
   background-color: #c2f5ff;
   width: 480px;
   height: 459px;
@@ -34,14 +36,32 @@ a {
   justify-content: space-evenly;
   align-items: center;
 }
-.window-start-message {
+.window-start-message,
+.window-final-message {
   width: 208px;
   color: #004980;
   font-size: 40px;
   line-height: 48px;
   text-align: center;
 }
-.window-start-button {
+.window-start-text,
+.window-final-text {
+  color: #000000;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+}
+.window-start-time,
+.window-final-time {
+  color: #000000;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 72px;
+  text-align: center;
+}
+.window-start-button,
+.window-final-button {
   width: 246px;
   height: 50px;
   border-radius: 12px;
@@ -54,9 +74,15 @@ a {
   text-align: center;
   cursor: pointer;
 }
-.window-start-button:hover {
+.window-start-button:hover,
+.window-final-button:hover {
   background-color: #00c2ff;
   border: 1px solid #00c2ff;
+}
+
+.window-final {
+  position: absolute;
+  z-index: 2;
 }
 
 .window-start-checkbox strong {
@@ -123,6 +149,8 @@ a {
   display: flex;
   flex-flow: column wrap;
   align-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 
 .header-bar {

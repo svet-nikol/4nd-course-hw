@@ -19,13 +19,15 @@ a {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  position: relative;
 }
 
-.window-start {
+.window-start,
+.window-final {
   background-color: #c2f5ff;
   width: 480px;
   height: 459px;
+  margin-top: 158px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -33,10 +35,26 @@ a {
   align-items: center;
 
   &-message {
-    width: 208px;
+    width: 256px;
     color: #004980;
     font-size: 40px;
     line-height: 48px;
+    text-align: center;
+  }
+
+  &-text {
+    color: #000000;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+  }
+
+  &-time {
+    color: #000000;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
     text-align: center;
   }
 
@@ -58,6 +76,22 @@ a {
     background-color: #00c2ff;
     border: 1px solid #00c2ff;
   }
+
+  &-bcg {
+    position: absolute;
+    z-index: 2;
+    background-color: #004980;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    opacity: 90%;
+  }
+}
+
+.window-final {
+  position: absolute;
+  z-index: 3;
 }
 
 .window-start-checkbox strong {
@@ -104,7 +138,8 @@ a {
   color: #fff;
 }
 
-.button-start-again {
+.button-start-again,
+.button-window-final {
   width: 246px;
   height: 50px;
   border-radius: 12px;
@@ -124,6 +159,9 @@ a {
   display: flex;
   flex-flow: column wrap;
   align-content: space-between;
+  margin-top: 22px;
+  position: relative;
+  z-index: 1;
 }
 
 .header-bar {
@@ -158,7 +196,8 @@ a {
   color: #fff;
 }
 
-.button-start-again:hover {
+.button-start-again:hover,
+.button-window-final:hover {
   background-color: #00c2ff;
   border: 1px solid #00c2ff;
 }
@@ -169,19 +208,19 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   align-self: center;
-  gap: 30px;
+  gap: 45px;
 }
 
 .-level-1 {
-  max-width: calc(95px * 3 + 30px * 2);
+  max-width: calc(95px * 3 + 45px * 2);
 }
 
 .-level-2 {
-  max-width: calc(95px * 4 + 30px * 3);
+  max-width: calc(95px * 4 + 45px * 3);
 }
 
 .-level-3 {
-  max-width: calc(95px * 6 + 30px * 5);
+  max-width: calc(95px * 6 + 45px * 5);
 }
 
 .cards {
