@@ -1,4 +1,5 @@
-export const allCards = [
+import { Card } from "./types";
+export const allCards: Card[] = [
   {
     suit: "hearts",
     rank: "6",

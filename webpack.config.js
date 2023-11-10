@@ -6,10 +6,15 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const mode = "production";
 
 module.exports = {
-  entry: ["./index.js", "./styles.scss"], // Входной файл, в котором мы пишем свой код
+  entry: ["./index.ts", "./styles.scss"], // "./index.js",
   mode,
   module: {
     rules: [
+      {
+        test: /\.ts$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
@@ -23,6 +28,9 @@ module.exports = {
         type: "asset/resource",
       },
     ],
+  },
+  resolve: {
+    extensions: [".ts", ".js"],
   },
   optimization: {
     minimizer: ["...", new CssMinimizerPlugin()],
@@ -47,5 +55,8 @@ module.exports = {
   ],
   experiments: {
     outputModule: true,
+  },
+  performance: {
+    hints: false,
   },
 };

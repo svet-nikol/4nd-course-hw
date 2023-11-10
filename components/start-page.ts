@@ -1,8 +1,14 @@
-import { saveLevelToLocalStorage } from "../saveLevelToLocalStorage.js";
-import { renderGameComponent } from "./game-page.js";
-import { allCards } from "../cards.js";
+import { saveLevelToLocalStorage } from "../saveLevelToLocalStorage";
+import { renderGameComponent } from "./game-page";
+import { allCards } from "../cards";
 
-export function renderStartComponent({ appEl, choosedDifficultyLevel }) {
+export function renderStartComponent({
+  appEl,
+  choosedDifficultyLevel,
+}: {
+  appEl: HTMLElement;
+  choosedDifficultyLevel: string;
+}) {
   const renderStartApp = () => {
     const appHtml = `<div class="window-start">
           <p class="window-start-message">Выбери сложность</p>
@@ -39,34 +45,39 @@ export function renderStartComponent({ appEl, choosedDifficultyLevel }) {
   renderStartApp();
 
   const radioInputs = document.querySelectorAll(
-    'input[type="radio"][name="difficulty-levels"]',
+    'input[type="radio"][name="difficulty-levels"]'
   );
 
-  function handleRadioChange(event) {
-    choosedDifficultyLevel = event.target.value;
+  function handleRadioChange(event: MouseEvent | TouchEvent) {
+    const target = event.target as HTMLInputElement;
+    choosedDifficultyLevel = target.value;
+    // choosedDifficultyLevel = event.target.value;
     saveLevelToLocalStorage(choosedDifficultyLevel);
   }
 
   radioInputs.forEach((input) => {
-    input.addEventListener("change", handleRadioChange);
+    input.addEventListener("change", (event: Event) =>
+      handleRadioChange(event as MouseEvent | TouchEvent)
+    );
   });
 
   const startButtonEl = document.querySelector(
-    'button[class="window-start-button"]',
+    'button[class="window-start-button"]'
   );
-
-  startButtonEl.addEventListener("click", () => {
-    if (choosedDifficultyLevel !== null) {
-      renderGameComponent({
-        appEl,
-        allCards,
-        renderStartComponent,
-        choosedDifficultyLevel,
-      });
-    } else {
-      console.log("Выберите уровень сложности перед началом игры.");
-    }
-  });
+  if (startButtonEl !== null) {
+    startButtonEl.addEventListener("click", () => {
+      if (choosedDifficultyLevel !== null) {
+        renderGameComponent({
+          appEl,
+          allCards,
+          renderStartComponent: renderStartComponent,
+          choosedDifficultyLevel,
+        });
+      } else {
+        console.log("Выберите уровень сложности перед началом игры.");
+      }
+    });
+  }
 }
 
 // return getLevelFromLocalStorage(choosedDifficultyLevel);
