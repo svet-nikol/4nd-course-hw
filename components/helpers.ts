@@ -43,7 +43,7 @@ export const turnFaceDownCards = () => {
     <img src="./static/images/face-down.svg" class="cards-image">
     `;
     element.disabled = false;
-  })
+  });
   return true;
 };
 
@@ -51,9 +51,7 @@ export const turnFaceUpCards = () => {
   const cardEls = document.querySelectorAll('button[class="cards"]');
   cardEls.forEach((card) => {
     const element = card as HTMLButtonElement;
-    const dataIndex = (element as HTMLElement).getAttribute(
-      "data-index"
-    );
+    const dataIndex = (element as HTMLElement).getAttribute("data-index");
     if (dataIndex !== null) {
       const index: number = parseInt(dataIndex, 10);
       const theCard = presetCards[index];
@@ -61,16 +59,16 @@ export const turnFaceUpCards = () => {
       <img src="./static/images/cards/${theCard.suit}/${theCard.rank}-${theCard.suit}.svg" class="cards-image">
       `;
       element.disabled = true;
-  }
-  return true;
-  })
+    }
+    return true;
+  });
 };
 
 export const timerElRender = (timerContent: string) => {
   const timerEl = document.getElementById("timer");
   if (timerEl !== null) {
     timerEl.textContent = `${timerContent}`;
-    return true;    
+    return true;
   }
   return false;
 };

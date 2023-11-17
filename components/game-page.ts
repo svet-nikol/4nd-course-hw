@@ -64,7 +64,7 @@ export function renderGameComponent({
     renderGameApp();
 
     const startAgainButtonEl = document.querySelector(
-      'button[class="button-start-again"]'
+      'button[class="button-start-again"]',
     ) as HTMLButtonElement;
     if (startAgainButtonEl !== null) {
       startAgainButtonEl.addEventListener("click", () => {
@@ -96,7 +96,7 @@ export function renderGameComponent({
     const pairCardsClick = (event: MouseEvent | TouchEvent) => {
       const clickedButton = (event.target as HTMLElement).parentNode as Element;
       const dataIndex = (clickedButton as HTMLElement).getAttribute(
-        "data-index"
+        "data-index",
       );
       if (dataIndex !== null) {
         const index: number = parseInt(dataIndex, 10);

@@ -45,7 +45,7 @@ export function renderStartComponent({
   renderStartApp();
 
   const radioInputs = document.querySelectorAll(
-    'input[type="radio"][name="difficulty-levels"]'
+    'input[type="radio"][name="difficulty-levels"]',
   );
 
   function handleRadioChange(event: MouseEvent | TouchEvent) {
@@ -57,12 +57,12 @@ export function renderStartComponent({
 
   radioInputs.forEach((input) => {
     input.addEventListener("change", (event: Event) =>
-      handleRadioChange(event as MouseEvent | TouchEvent)
+      handleRadioChange(event as MouseEvent | TouchEvent),
     );
   });
 
   const startButtonEl = document.querySelector(
-    'button[class="window-start-button"]'
+    'button[class="window-start-button"]',
   );
   if (startButtonEl !== null) {
     startButtonEl.addEventListener("click", () => {

@@ -20,8 +20,12 @@ export function renderFinalComponent({
       appEl.appendChild(windowResultGame);
       windowResultGame.className = "window-final";
       windowResultGame.innerHTML = `
-        <img src="./static/images/${userWin ? "celebration-pic.svg" : "fail-pic.svg"}" class="window-final-message-image">
-        <p class="window-final-message">${userWin ? 'Вы выиграли!' : 'Вы проиграли!'}</p>
+        <img src="./static/images/${
+          userWin ? "celebration-pic.svg" : "fail-pic.svg"
+        }" class="window-final-message-image">
+        <p class="window-final-message">${
+          userWin ? "Вы выиграли!" : "Вы проиграли!"
+        }</p>
         <p class="window-final-text">Затраченное время:</p>
         <p class="window-final-time">${timerContent}</p>
         <button class="button-window-final">Играть снова</button>
@@ -32,8 +36,8 @@ export function renderFinalComponent({
     };
     renderFinaltApp();
     const startAgainButtonEl = document.querySelector(
-      'button[class="button-window-final"]'
-    ) as HTMLButtonElement;;
+      'button[class="button-window-final"]',
+    ) as HTMLButtonElement;
     if (startAgainButtonEl !== null) {
       startAgainButtonEl.addEventListener("click", () => {
         renderStartComponent({ appEl, choosedDifficultyLevel });
