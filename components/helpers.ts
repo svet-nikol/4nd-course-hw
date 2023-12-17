@@ -35,12 +35,12 @@ export const getPresetCards = ({
   return shuffledPresetCards;
 };
 
-export const turnFaceDownCards = () => {
+export const turnFaceDownCards = (choosedDifficultyLevel: string) => {
   const cardEls = document.querySelectorAll('button[class="cards"]');
   cardEls.forEach((card) => {
     const element = card as HTMLButtonElement;
     element.innerHTML = `
-    <img src="./static/images/face-down.svg" class="cards-image">
+    <img src="./static/images/face-down.svg" class="cards-image-level-${choosedDifficultyLevel}">
     `;
     element.disabled = false;
   });

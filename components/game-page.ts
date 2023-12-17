@@ -35,7 +35,7 @@ export function renderGameComponent({
         .map((card: Card) => {
           return `
             <button class="cards" disabled="true">
-                <img src="${card.image}" class="cards-image">
+                <img src="${card.image}" class="cards-image-level-${choosedDifficultyLevel}">
             </button>
             `;
         })
@@ -83,12 +83,12 @@ export function renderGameComponent({
     };
 
     setTimeout(() => {
-      turnFaceDownCards();
+      turnFaceDownCards(choosedDifficultyLevel);
       timer();
       if (startAgainButtonEl !== null) {
         startAgainButtonEl.disabled = false;
       }
-    }, 5000);
+    }, 15000);
 
     let clickedPairCards: number[] = [];
     let clickedAllCards: number[] = [];
