@@ -18,6 +18,14 @@
         height: 48px;
     }
 
+    .window-game {
+        margin-top: 0px;
+    }
+
+    .card-field {
+        padding-top: 6px;
+    }
+
     .header-bar {
         width: 359px;
         gap: 14px;
@@ -35,7 +43,7 @@
 
     .-level-3 {
         max-width: calc(67px * 4 + 16px * 3 + 1px);
-        gap: 16px;
+        gap: 10px;
         justify-content: space-evenly;
     }
 
