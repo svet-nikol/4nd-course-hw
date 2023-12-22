@@ -21,7 +21,7 @@ export function renderFinalComponent({
       windowResultGame.className = "window-final";
       windowResultGame.innerHTML = `
         <img src="./static/images/${
-          userWin ? "celebration-pic.svg" : "fail-pic.svg"
+          userWin ? "celebration-pic.png" : "fail-pic.png"
         }" class="window-final-message-image">
         <p class="window-final-message">${
           userWin ? "Вы выиграли!" : "Вы проиграли!"
