@@ -154,6 +154,21 @@ a {
   cursor: pointer;
 }
 
+.button-start-again-disabled {
+  width: 246px;
+  height: 50px;
+  border-radius: 12px;
+  border: none;
+  color: #fff;
+  font-family: "StratosSkyeng_n", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  margin-bottom: 15px;
+  background-color: #D3DAD3;
+  cursor: pointer;
+}
+
 .button-window-final {
   margin-top: 5px;
 }

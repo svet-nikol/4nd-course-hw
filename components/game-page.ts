@@ -51,7 +51,7 @@ export function renderGameComponent({
                     </div>
                     <p class="timer" id="timer">00.00</p>
                 </div>
-                <button class="button-start-again" disabled="true">Начать заново</button>
+                <button id="button-start-again" class="button-start-again-disabled" disabled="true">Начать заново</button>
             </div>
             <div class="card-field -level-${choosedDifficultyLevel}">
                 ${presetCardsHtml}
@@ -63,9 +63,7 @@ export function renderGameComponent({
     };
     renderGameApp();
 
-    const startAgainButtonEl = document.querySelector(
-      'button[class="button-start-again"]',
-    ) as HTMLButtonElement;
+    const startAgainButtonEl = document.getElementById("button-start-again") as HTMLButtonElement;
     if (startAgainButtonEl !== null) {
       startAgainButtonEl.addEventListener("click", () => {
         clearInterval(intervalId);
@@ -87,6 +85,7 @@ export function renderGameComponent({
       timer();
       if (startAgainButtonEl !== null) {
         startAgainButtonEl.disabled = false;
+        startAgainButtonEl.className = "button-start-again";
       }
     }, 15000);
 
