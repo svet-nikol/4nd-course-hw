@@ -27,6 +27,7 @@ export function renderGameComponent({
   if (renderStartComponent) {
     presetCards = getPresetCards({ allCards, choosedDifficultyLevel });
     let time = 0;
+    let timeCountdown = 5;
     let timerContent = formatTime(time);
     let userWin: boolean = false;
 
@@ -49,7 +50,7 @@ export function renderGameComponent({
                         <p class="min-sec">min</p>
                         <p class="min-sec">sek</p>
                     </div>
-                    <p class="timer" id="timer">00.00</p>
+                    <p class="timer" id="timer">${formatTime(timeCountdown)}</p>
                 </div>
                 <button id="button-start-again" class="button-start-again-disabled" disabled="true">Начать заново</button>
             </div>
@@ -66,28 +67,39 @@ export function renderGameComponent({
     const startAgainButtonEl = document.getElementById("button-start-again") as HTMLButtonElement;
     if (startAgainButtonEl !== null) {
       startAgainButtonEl.addEventListener("click", () => {
-        clearInterval(intervalId);
+        clearInterval(intervalIdGame);
         renderStartComponent({ appEl, choosedDifficultyLevel });
       });
     }
 
-    let intervalId: NodeJS.Timeout;
+    let intervalIdPregame: NodeJS.Timeout;
+    const timerCountdown = () => {
+      intervalIdPregame = setInterval(() => {
+        timeCountdown -= 1;
+        timerContent = formatTime(time=timeCountdown);
+        timerElRender(timerContent);
+      }, 1000);      
+    }
+    timerCountdown();
+
+    let intervalIdGame: NodeJS.Timeout;
     const timer = () => {
-      intervalId = setInterval(() => {
+      intervalIdGame = setInterval(() => {
         time += 1;
         timerContent = formatTime(time);
         timerElRender(timerContent);
       }, 1000);
-    };
+    }
 
     setTimeout(() => {
+      clearInterval(intervalIdPregame);
       turnFaceDownCards(choosedDifficultyLevel);
       timer();
       if (startAgainButtonEl !== null) {
         startAgainButtonEl.disabled = false;
         startAgainButtonEl.className = "button-start-again";
       }
-    }, 15000);
+    }, 5000);
 
     let clickedPairCards: number[] = [];
     let clickedAllCards: number[] = [];
@@ -126,7 +138,7 @@ export function renderGameComponent({
             // Карты совпали, можно обнулить массив пары и продолжать игру
           } else {
             // Карты не совпали, переворачиваем все карты и через одну секунду вызываем окно с результатами
-            clearInterval(intervalId);
+            clearInterval(intervalIdGame);
             turnFaceUpCards();
             setTimeout(() => {
               renderFinalComponent({
@@ -141,7 +153,7 @@ export function renderGameComponent({
         }
 
         if (clickedAllCards.length === presetCards.length) {
-          clearInterval(intervalId);
+          clearInterval(intervalIdGame);
           userWin = true;
           setTimeout(() => {
             renderFinalComponent({
