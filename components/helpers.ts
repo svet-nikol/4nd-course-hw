@@ -47,7 +47,7 @@ export const turnFaceDownCards = (choosedDifficultyLevel: string) => {
   return true;
 };
 
-export const turnFaceUpCards = () => {
+export const turnFaceUpCards = (choosedDifficultyLevel: string) => {
   const cardEls = document.querySelectorAll('button[class="cards"]');
   cardEls.forEach((card) => {
     const element = card as HTMLButtonElement;
@@ -56,7 +56,7 @@ export const turnFaceUpCards = () => {
       const index: number = parseInt(dataIndex, 10);
       const theCard = presetCards[index];
       element.innerHTML = `
-      <img src="./static/images/cards/${theCard.suit}/${theCard.rank}-${theCard.suit}.svg" class="cards-image">
+      <img src="./static/images/cards/${theCard.suit}/${theCard.rank}-${theCard.suit}.svg" class="cards-image-level-${choosedDifficultyLevel}">
       `;
       element.disabled = true;
     }

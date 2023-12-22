@@ -120,7 +120,7 @@ export function renderGameComponent({
 
         // Открываем выбранную карту
         clickedButton.innerHTML = `
-        <img src="./static/images/cards/${clickedCard.suit}/${clickedCard.rank}-${clickedCard.suit}.svg" class="cards-image">
+        <img src="./static/images/cards/${clickedCard.suit}/${clickedCard.rank}-${clickedCard.suit}.svg" class="cards-image-level-${choosedDifficultyLevel}">
         `;
         clickedPairCards.push(index);
         clickedAllCards.push(index);
@@ -139,7 +139,7 @@ export function renderGameComponent({
           } else {
             // Карты не совпали, переворачиваем все карты и через одну секунду вызываем окно с результатами
             clearInterval(intervalIdGame);
-            turnFaceUpCards();
+            turnFaceUpCards(choosedDifficultyLevel);
             setTimeout(() => {
               renderFinalComponent({
                 appEl: appEl,

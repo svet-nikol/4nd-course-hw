@@ -176,8 +176,9 @@ a {
 .window-game {
   max-width: 979px;
   display: flex;
-  flex-flow: column wrap;
-  align-content: space-between;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
   margin-top: 22px;
   position: relative;
   z-index: 1;
@@ -227,30 +228,37 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   align-self: center;
-  gap: 45px;
 }
 
 .-level-1 {
   max-width: calc(95px * 3 + 45px * 2);
+  gap: 45px;
 }
 
 .-level-2 {
   max-width: calc(95px * 4 + 45px * 3);
+  gap: 45px;
 }
 
 .-level-3 {
   max-width: calc(95px * 6 + 45px * 5);
+  gap: 45px;
 }
 
 .cards {
-  width: 95px;
-  height: 133px;
   border-radius: 4px;
   border: 0;
+  box-sizing: border-box;
   cursor: pointer;
 }
 
-// .cards-image {
-//   width: 67px;
-//   height: 94px;
-// }
+.cards-image-level-1,
+.cards-image-level-2,
+.cards-image-level-3 {
+  display: block
+}
+
+
+@import 'mobile';
+
+
