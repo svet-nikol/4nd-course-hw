@@ -1,0 +1,47 @@
+@media (max-width: 805px) {
+    .window-start,
+    .window-final {
+    background-color: #c2f5ff;
+    width: 338px;
+    height: 376px;
+    }
+
+    .choose-difficulty-toolbar label {
+        width: 70px;
+        height: 70px;
+        padding-top: 0px;
+    }
+
+    .button-start-again,
+    .button-start-again-disabled {
+        width: 198px;
+        height: 48px;
+    }
+
+    .header-bar {
+        width: 359px;
+        gap: 14px;
+        align-self: center;
+    }
+
+    .-level-1 {
+        max-width: calc(95px * 2 + 45px * 1);
+    }
+
+    .-level-2 {
+        max-width: calc(95px * 3 + 16px * 2 + 1px);
+        gap: 16px;
+    }
+
+    .-level-3 {
+        max-width: calc(67px * 4 + 16px * 3 + 1px);
+        gap: 16px;
+        justify-content: space-evenly;
+    }
+
+    .cards-image-level-3 {
+        width: 67px;
+        height: 94px;
+        align-self: center;
+    }
+}

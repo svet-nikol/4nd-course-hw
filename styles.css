@@ -12,36 +12,53 @@ a {
   font-family: "StratosSkyeng_n";
   src: url("./static/fonts/stratosskyengweb-regular.woff2");
 }
-
 .container {
   font-family: "StratosSkyeng_n", sans-serif;
   background-color: #004980;
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  position: relative;
 }
 
-.window-start {
+.window-start,
+.window-final {
   background-color: #c2f5ff;
   width: 480px;
   height: 459px;
+  margin-top: 158px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
 }
-
-.window-start-message {
-  width: 208px;
+.window-start-message,
+.window-final-message {
+  width: 276px;
   color: #004980;
   font-size: 40px;
   line-height: 48px;
   text-align: center;
 }
-
-.window-start-button {
+.window-start-text,
+.window-final-text {
+  color: #000;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+}
+.window-start-time,
+.window-final-time {
+  color: #000;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 72px;
+  text-align: center;
+}
+.window-start-button,
+.window-final-button {
   width: 246px;
   height: 50px;
   border-radius: 12px;
@@ -54,10 +71,26 @@ a {
   text-align: center;
   cursor: pointer;
 }
-
-.window-start-button:hover {
+.window-start-button:hover,
+.window-final-button:hover {
   background-color: #00c2ff;
   border: 1px solid #00c2ff;
+}
+.window-start-bcg,
+.window-final-bcg {
+  position: absolute;
+  z-index: 2;
+  background-color: #004980;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.window-final {
+  position: absolute;
+  z-index: 3;
 }
 
 .window-start-checkbox strong {
@@ -73,7 +106,7 @@ a {
   gap: 24px;
 }
 
-.choose-difficulty-toolbar input[type="radio"] {
+.choose-difficulty-toolbar input[type=radio] {
   display: none;
 }
 
@@ -98,13 +131,14 @@ a {
   color: #fff;
 }
 
-.choose-difficulty-toolbar input[type="radio"]:checked + label {
+.choose-difficulty-toolbar input[type=radio]:checked + label {
   background-color: #00c2ff;
   border: 1px solid #00c2ff;
   color: #fff;
 }
 
-.button-start-again {
+.button-start-again,
+.button-window-final {
   width: 246px;
   height: 50px;
   border-radius: 12px;
@@ -115,15 +149,38 @@ a {
   font-size: 24px;
   line-height: 32px;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
   cursor: pointer;
+}
+
+.button-start-again-disabled {
+  width: 246px;
+  height: 50px;
+  border-radius: 12px;
+  border: none;
+  color: #fff;
+  font-family: "StratosSkyeng_n", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  margin-bottom: 15px;
+  background-color: #D3DAD3;
+  cursor: pointer;
+}
+
+.button-window-final {
+  margin-top: 5px;
 }
 
 .window-game {
   max-width: 979px;
   display: flex;
-  flex-flow: column wrap;
-  align-content: space-between;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  position: relative;
+  z-index: 1;
 }
 
 .header-bar {
@@ -158,7 +215,8 @@ a {
   color: #fff;
 }
 
-.button-start-again:hover {
+.button-start-again:hover,
+.button-window-final:hover {
   background-color: #00c2ff;
   border: 1px solid #00c2ff;
 }
@@ -169,25 +227,73 @@ a {
   flex-wrap: wrap;
   justify-content: space-between;
   align-self: center;
-  gap: 30px;
 }
 
 .-level-1 {
-  max-width: 345px;
+  max-width: 375px;
+  gap: 45px;
 }
 
 .-level-2 {
-  max-width: 470px;
+  max-width: 515px;
+  gap: 45px;
 }
 
 .-level-3 {
-  max-width: 720px;
+  max-width: 795px;
+  gap: 45px;
 }
 
 .cards {
-  width: 95px;
-  height: 133px;
   border-radius: 4px;
   border: 0;
+  box-sizing: border-box;
   cursor: pointer;
 }
+
+.cards-image-level-1,
+.cards-image-level-2,
+.cards-image-level-3 {
+  display: block;
+}
+
+@media (max-width: 805px) {
+  .window-start,
+  .window-final {
+    background-color: #c2f5ff;
+    width: 338px;
+    height: 376px;
+  }
+  .choose-difficulty-toolbar label {
+    width: 70px;
+    height: 70px;
+    padding-top: 0px;
+  }
+  .button-start-again,
+  .button-start-again-disabled {
+    width: 198px;
+    height: 48px;
+  }
+  .header-bar {
+    width: 359px;
+    gap: 14px;
+    align-self: center;
+  }
+  .-level-1 {
+    max-width: 235px;
+  }
+  .-level-2 {
+    max-width: 318px;
+    gap: 16px;
+  }
+  .-level-3 {
+    max-width: 317px;
+    gap: 16px;
+    justify-content: space-evenly;
+  }
+  .cards-image-level-3 {
+    width: 67px;
+    height: 94px;
+    align-self: center;
+  }
+}/*# sourceMappingURL=styles.css.map */
