@@ -129,12 +129,14 @@ a {
 .choose-difficulty-toolbar label:hover {
   background-color: #7ac100;
   border: 1px solid #7ac100;
+  border-radius: 12px;
   color: #fff;
 }
 
 .choose-difficulty-toolbar input[type="radio"]:checked + label {
   background-color: #00c2ff;
   border: 1px solid #00c2ff;
+  border-radius: 12px;
   color: #fff;
 }
 

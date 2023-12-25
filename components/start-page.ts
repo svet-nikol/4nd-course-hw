@@ -53,6 +53,7 @@ export function renderStartComponent({
     choosedDifficultyLevel = target.value;
     // choosedDifficultyLevel = event.target.value;
     saveLevelToLocalStorage(choosedDifficultyLevel);
+    // event.stopPropagation();
   }
 
   radioInputs.forEach((input) => {

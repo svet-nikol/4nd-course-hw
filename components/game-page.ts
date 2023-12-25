@@ -99,7 +99,7 @@ export function renderGameComponent({
         startAgainButtonEl.disabled = false;
         startAgainButtonEl.className = "button-start-again";
       }
-    }, timeCountdown*1000);
+    }, timeCountdown*1005);
 
     let clickedPairCards: number[] = [];
     let clickedAllCards: number[] = [];
