@@ -40,13 +40,19 @@
 
     .-level-2 {
         max-width: calc(95px * 3 + 16px * 2 + 1px);
-        gap: 10px;
+        gap: 26px;
     }
 
     .-level-3 {
         max-width: calc(67px * 4 + 16px * 3 + 1px);
         gap: 16px;
         justify-content: space-evenly;
+    }
+
+    .cards-image-level-2 {
+        width: 80px;
+        height: 112px;
+        align-self: center;
     }
 
     .cards-image-level-3 {

@@ -16,7 +16,7 @@ export const getPresetCards = ({
   } else if (difficultyLevelInt === 2) {
     amount = 6;
   } else if (difficultyLevelInt === 3) {
-    amount = 9;
+    amount = 8;
   }
 
   const resultPresetCards = [];
